@@ -9,6 +9,7 @@ import { LucideArrowRight } from 'lucide-react'
 import ProductCard from '../products/ProductCard'
 import productsData from '@/data/sampleProducts.json'
 import Button from '../ui/Button'
+import { Product } from '@/types'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,7 +17,7 @@ const FeaturedProducts = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
 
-  const featuredProducts = productsData.filter((product) => product.featured)
+  const featuredProducts = productsData.filter((product) => product.featured) as Product[]
 
   useEffect(() => {
     if (gridRef.current) {
@@ -74,7 +75,7 @@ const FeaturedProducts = () => {
         >
           {featuredProducts.slice(0, 8).map((product) => (
             <div key={product.id} className="product-card-wrapper">
-              <ProductCard product={product as any} />
+              <ProductCard product={product} />
             </div>
           ))}
         </div>

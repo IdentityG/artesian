@@ -38,8 +38,8 @@ export interface Product {
   colors?: string[]
   customizable: boolean
   customizationNote?: string
-  handmadeIn: string // Ethiopian region
-  productionTime?: string // e.g., "3-5 days"
+  handmadeIn: string
+  productionTime?: string
   featured: boolean
   status: 'active' | 'draft' | 'out_of_stock'
   rating: number

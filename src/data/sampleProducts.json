@@ -23,6 +23,12 @@
         "url": "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=800",
         "alt": "Habesha Kemis detail view",
         "isPrimary": false
+      },
+      {
+        "id": "img3",
+        "url": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800",
+        "alt": "Habesha Kemis side view",
+        "isPrimary": false
       }
     ],
     "category": {

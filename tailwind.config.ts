@@ -71,10 +71,6 @@ const config: Config = {
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'ethiopian-pattern': "url('/images/ethiopian-pattern.svg')",
-      },
     },
   },
   plugins: [
@@ -83,4 +79,5 @@ const config: Config = {
     require('@tailwindcss/aspect-ratio'),
   ],
 }
+
 export default config
