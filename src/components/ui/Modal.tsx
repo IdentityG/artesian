@@ -3,6 +3,7 @@
 import { Fragment, ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { LucideX } from 'lucide-react'
+import { cn } from '@/lib/cn'
 import Button from './Button'
 
 interface ModalProps {
