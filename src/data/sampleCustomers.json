@@ -1,0 +1,83 @@
+[
+  {
+    "id": "c1",
+    "firstName": "Meron",
+    "lastName": "Tesfaye",
+    "email": "meron@email.com",
+    "phone": "+251911111111",
+    "avatar": "https://i.pravatar.cc/150?img=47",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr1",
+        "street": "Bole Road, Near Edna Mall",
+        "city": "Addis Ababa",
+        "region": "Addis Ababa",
+        "subCity": "Bole",
+        "postalCode": "1000",
+        "country": "Ethiopia",
+        "isDefault": true
+      }
+    ],
+    "wishlistCount": 12,
+    "ordersCount": 8,
+    "isEmailVerified": true,
+    "isPhoneVerified": true,
+    "createdAt": "2023-06-15T10:00:00Z",
+    "updatedAt": "2024-01-10T14:20:00Z"
+  },
+  {
+    "id": "c2",
+    "firstName": "Samuel",
+    "lastName": "Desta",
+    "email": "samuel@email.com",
+    "phone": "+251922222222",
+    "avatar": "https://i.pravatar.cc/150?img=33",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr2",
+        "street": "Haile Gebreselassie Road",
+        "city": "Addis Ababa",
+        "region": "Addis Ababa",
+        "subCity": "Yeka",
+        "postalCode": "1000",
+        "country": "Ethiopia",
+        "isDefault": true
+      }
+    ],
+    "wishlistCount": 5,
+    "ordersCount": 3,
+    "isEmailVerified": true,
+    "isPhoneVerified": true,
+    "createdAt": "2023-09-20T11:30:00Z",
+    "updatedAt": "2024-01-12T15:00:00Z"
+  },
+  {
+    "id": "c3",
+    "firstName": "Hana",
+    "lastName": "Mulugeta",
+    "email": "hana@email.com",
+    "phone": "+251933333333",
+    "avatar": "https://i.pravatar.cc/150?img=20",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr3",
+        "street": "Mexico Square",
+        "city": "Addis Ababa",
+        "region": "Addis Ababa",
+        "subCity": "Kirkos",
+        "postalCode": "1000",
+        "country": "Ethiopia",
+        "isDefault": true
+      }
+    ],
+    "wishlistCount": 18,
+    "ordersCount": 15,
+    "isEmailVerified": true,
+    "isPhoneVerified": true,
+    "createdAt": "2023-03-10T08:00:00Z",
+    "updatedAt": "2024-01-12T11:30:00Z"
+  }
+]
