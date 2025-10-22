@@ -7,7 +7,7 @@ export const formatPrice = (price: number): string => {
 }
 
 export const formatDate = (date: string): string => {
-  return new Intl.DateFormat('en-ET', {
+  return new Intl.DateTimeFormat('en-ET', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

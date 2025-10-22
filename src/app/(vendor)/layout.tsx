@@ -4,11 +4,14 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import {
-  LucideUser,
+  LucideLayoutDashboard,
   LucidePackage,
-  LucideHeart,
+  LucideShoppingBag,
+  LucideBarChart3,
+  LucideStar,
   LucideSettings,
   LucideLogOut,
+  LucideStore,
 } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -17,7 +20,7 @@ import Loading from '@/components/ui/Loading'
 import { useAuthStore } from '@/store/authStore'
 import { toast } from 'react-hot-toast'
 
-export default function CustomerLayout({
+export default function VendorLayout({
   children,
 }: {
   children: React.ReactNode
@@ -27,37 +30,49 @@ export default function CustomerLayout({
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Give time for the store to hydrate from localStorage
     const timer = setTimeout(() => {
       setIsLoading(false)
       if (!isAuthenticated) {
         toast.error('Please login to continue')
         router.push('/login')
+      } else if (user?.role !== 'vendor') {
+        toast.error('Access denied. Vendor account required.')
+        router.push('/')
       }
     }, 100)
 
     return () => clearTimeout(timer)
-  }, [isAuthenticated, router])
+  }, [isAuthenticated, user, router])
 
   const sidebarItems = [
     {
-      label: 'Profile',
-      href: '/profile',
-      icon: LucideUser,
+      label: 'Dashboard',
+      href: '/vendor/dashboard',
+      icon: LucideLayoutDashboard,
     },
     {
-      label: 'My Orders',
-      href: '/orders',
+      label: 'Products',
+      href: '/vendor/products',
       icon: LucidePackage,
     },
     {
-      label: 'Wishlist',
-      href: '/wishlist',
-      icon: LucideHeart,
+      label: 'Orders',
+      href: '/vendor/orders',
+      icon: LucideShoppingBag,
+    },
+    {
+      label: 'Analytics',
+      href: '/vendor/analytics',
+      icon: LucideBarChart3,
+    },
+    {
+      label: 'Reviews',
+      href: '/vendor/reviews',
+      icon: LucideStar,
     },
     {
       label: 'Settings',
-      href: '/settings',
+      href: '/vendor/settings',
       icon: LucideSettings,
     },
   ]
@@ -68,13 +83,11 @@ export default function CustomerLayout({
     router.push('/')
   }
 
-  // Show loading while checking auth
   if (isLoading) {
-    return <Loading fullScreen text="Loading..." />
+    return <Loading fullScreen text="Loading vendor dashboard..." />
   }
 
-  // Don't render anything if not authenticated (will redirect)
-  if (!isAuthenticated || !user) {
+  if (!isAuthenticated || !user || user.role !== 'vendor') {
     return null
   }
 
@@ -84,9 +97,12 @@ export default function CustomerLayout({
       <main className="min-h-screen bg-gray-50">
         <div className="bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
           <div className="container-custom py-8">
-            <h1 className="text-3xl font-bold mb-2">My Account</h1>
+            <div className="flex items-center gap-3 mb-2">
+              <LucideStore className="w-8 h-8" />
+              <h1 className="text-3xl font-bold">Vendor Dashboard</h1>
+            </div>
             <p className="text-primary-100">
-              Welcome back, {user.firstName}!
+              Manage your store and products
             </p>
           </div>
         </div>
@@ -109,7 +125,7 @@ export default function CustomerLayout({
                         />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-semibold">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-full flex items-center justify-center text-white font-semibold">
                         {user.firstName.charAt(0)}
                         {user.lastName.charAt(0)}
                       </div>
@@ -118,9 +134,7 @@ export default function CustomerLayout({
                       <p className="font-semibold text-gray-900">
                         {user.firstName} {user.lastName}
                       </p>
-                      <p className="text-sm text-gray-600 truncate max-w-[150px]">
-                        {user.email}
-                      </p>
+                      <p className="text-sm text-gray-600">Vendor</p>
                     </div>
                   </div>
                 </div>
@@ -161,7 +175,7 @@ export default function CustomerLayout({
 
             {/* Mobile Navigation */}
             <div className="lg:hidden bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6">
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 {sidebarItems.map((item) => {
                   const Icon = item.icon
                   return (
@@ -171,7 +185,7 @@ export default function CustomerLayout({
                       className="flex flex-col items-center gap-2 p-3 rounded-lg border border-gray-200 hover:border-primary-600 hover:bg-primary-50 transition-colors"
                     >
                       <Icon className="w-5 h-5 text-gray-700" />
-                      <span className="text-sm font-medium text-gray-900">
+                      <span className="text-xs font-medium text-gray-900">
                         {item.label}
                       </span>
                     </a>
