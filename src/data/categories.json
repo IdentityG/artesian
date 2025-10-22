@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "Traditional Clothing",
+    "slug": "traditional-clothing",
+    "description": "Authentic Ethiopian traditional garments handcrafted by local artisans",
+    "image": "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=500",
+    "productsCount": 156
+  },
+  {
+    "id": "2",
+    "name": "Home Decor",
+    "slug": "home-decor",
+    "description": "Beautiful handmade items to decorate your home",
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500",
+    "productsCount": 234
+  },
+  {
+    "id": "3",
+    "name": "Jewelry",
+    "slug": "jewelry",
+    "description": "Handcrafted jewelry with traditional Ethiopian designs",
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500",
+    "productsCount": 189
+  },
+  {
+    "id": "4",
+    "name": "Leather Goods",
+    "slug": "leather-goods",
+    "description": "Premium quality leather products made by skilled craftsmen",
+    "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500",
+    "productsCount": 98
+  },
+  {
+    "id": "5",
+    "name": "Coffee & Spices",
+    "slug": "coffee-spices",
+    "description": "Authentic Ethiopian coffee and traditional spices",
+    "image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500",
+    "productsCount": 145
+  },
+  {
+    "id": "6",
+    "name": "Art & Crafts",
+    "slug": "art-crafts",
+    "description": "Unique handmade art pieces and traditional crafts",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500",
+    "productsCount": 267
+  }
+]

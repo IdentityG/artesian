@@ -1,0 +1,79 @@
+[
+  {
+    "id": "1",
+    "name": "Addis Ababa",
+    "subCities": [
+      "Addis Ketema",
+      "Akaky Kaliti",
+      "Arada",
+      "Bole",
+      "Gullele",
+      "Kirkos",
+      "Kolfe Keranio",
+      "Lideta",
+      "Nifas Silk-Lafto",
+      "Yeka"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Afar",
+    "zones": ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5"]
+  },
+  {
+    "id": "3",
+    "name": "Amhara",
+    "zones": [
+      "North Gondar",
+      "South Gondar",
+      "North Wollo",
+      "South Wollo",
+      "North Shewa",
+      "East Gojjam",
+      "West Gojjam",
+      "Awi",
+      "Wag Hemra",
+      "Oromia"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Oromia",
+    "zones": [
+      "West Arsi",
+      "East Shewa",
+      "West Shewa",
+      "North Shewa",
+      "Arsi",
+      "Bale",
+      "Borena",
+      "East Hararghe",
+      "West Hararghe",
+      "Guji",
+      "Jimma",
+      "Illubabor",
+      "East Wellega",
+      "West Wellega",
+      "Kelam Wellega",
+      "Horo Gudru Wellega"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Dire Dawa",
+    "areas": ["Urban", "Rural"]
+  },
+  {
+    "id": "6",
+    "name": "Tigray",
+    "zones": [
+      "Central",
+      "Eastern",
+      "North Western",
+      "Southern",
+      "South Eastern",
+      "Western",
+      "Mekelle"
+    ]
+  }
+]

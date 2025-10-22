@@ -1,0 +1,184 @@
+[
+  {
+    "id": "ord1",
+    "orderNumber": "ART-1705234567-ABC12",
+    "customerId": "c1",
+    "customerName": "Meron Tesfaye",
+    "customerEmail": "meron@email.com",
+    "customerPhone": "+251911111111",
+    "items": [
+      {
+        "id": "oi1",
+        "product": {
+          "id": "p1",
+          "title": "Traditional Habesha Kemis - White with Gold Embroidery",
+          "images": [
+            {
+              "id": "img1",
+              "url": "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800",
+              "alt": "Habesha Kemis",
+              "isPrimary": true
+            }
+          ],
+          "price": 3500
+        },
+        "quantity": 1,
+        "customization": "Size: Large, Extra embroidery on sleeves",
+        "price": 3500,
+        "subtotal": 3500,
+        "vendorId": "v1",
+        "vendorName": "Abeba's Traditional Crafts"
+      }
+    ],
+    "subtotal": 3500,
+    "shippingCost": 50,
+    "tax": 525,
+    "discount": 0,
+    "total": 4075,
+    "shippingAddress": {
+      "id": "addr1",
+      "street": "Bole Road, Near Edna Mall",
+      "city": "Addis Ababa",
+      "region": "Addis Ababa",
+      "subCity": "Bole",
+      "postalCode": "1000",
+      "country": "Ethiopia"
+    },
+    "paymentMethod": "telebirr",
+    "paymentStatus": "paid",
+    "orderStatus": "delivered",
+    "trackingNumber": "ETH1234567890",
+    "notes": "Please call before delivery",
+    "createdAt": "2024-01-05T10:30:00Z",
+    "updatedAt": "2024-01-10T14:20:00Z",
+    "paidAt": "2024-01-05T10:35:00Z",
+    "shippedAt": "2024-01-06T09:00:00Z",
+    "deliveredAt": "2024-01-08T16:30:00Z"
+  },
+  {
+    "id": "ord2",
+    "orderNumber": "ART-1705298765-XYZ34",
+    "customerId": "c2",
+    "customerName": "Samuel Desta",
+    "customerEmail": "samuel@email.com",
+    "customerPhone": "+251922222222",
+    "items": [
+      {
+        "id": "oi2",
+        "product": {
+          "id": "p2",
+          "title": "Handcrafted Ethiopian Leather Messenger Bag",
+          "images": [
+            {
+              "id": "img3",
+              "url": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800",
+              "alt": "Leather messenger bag",
+              "isPrimary": true
+            }
+          ],
+          "price": 2800
+        },
+        "quantity": 1,
+        "customization": "Color: Brown, Initials: SD",
+        "price": 2800,
+        "subtotal": 2800,
+        "vendorId": "v2",
+        "vendorName": "Dawit's Leather Workshop"
+      },
+      {
+        "id": "oi3",
+        "product": {
+          "id": "p6",
+          "title": "Handmade Leather Wallet with Ethiopian Cross",
+          "images": [
+            {
+              "id": "img10",
+              "url": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800",
+              "alt": "Leather wallet",
+              "isPrimary": true
+            }
+          ],
+          "price": 680
+        },
+        "quantity": 2,
+        "price": 680,
+                "subtotal": 1360,
+        "vendorId": "v2",
+        "vendorName": "Dawit's Leather Workshop"
+      }
+    ],
+    "subtotal": 4160,
+    "shippingCost": 0,
+    "tax": 624,
+    "discount": 200,
+    "total": 4584,
+    "shippingAddress": {
+      "id": "addr2",
+      "street": "Haile Gebreselassie Road",
+      "city": "Addis Ababa",
+      "region": "Addis Ababa",
+      "subCity": "Yeka",
+      "postalCode": "1000",
+      "country": "Ethiopia"
+    },
+    "paymentMethod": "cash_on_delivery",
+    "paymentStatus": "pending",
+    "orderStatus": "processing",
+    "notes": "Gift wrapping requested",
+    "createdAt": "2024-01-12T14:20:00Z",
+    "updatedAt": "2024-01-12T15:00:00Z"
+  },
+  {
+    "id": "ord3",
+    "orderNumber": "ART-1705312456-QWE78",
+    "customerId": "c3",
+    "customerName": "Hana Mulugeta",
+    "customerEmail": "hana@email.com",
+    "customerPhone": "+251933333333",
+    "items": [
+      {
+        "id": "oi4",
+        "product": {
+          "id": "p3",
+          "title": "Ethiopian Cross Pendant Necklace - Sterling Silver",
+          "images": [
+            {
+              "id": "img6",
+              "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800",
+              "alt": "Ethiopian cross pendant",
+              "isPrimary": true
+            }
+          ],
+          "price": 1850
+        },
+        "quantity": 1,
+        "price": 1850,
+        "subtotal": 1850,
+        "vendorId": "v3",
+        "vendorName": "Tigist's Jewelry Collection"
+      }
+    ],
+    "subtotal": 1850,
+    "shippingCost": 50,
+    "tax": 277.5,
+    "discount": 0,
+    "total": 2177.5,
+    "shippingAddress": {
+      "id": "addr3",
+      "street": "Mexico Square",
+      "city": "Addis Ababa",
+      "region": "Addis Ababa",
+      "subCity": "Kirkos",
+      "postalCode": "1000",
+      "country": "Ethiopia"
+    },
+    "paymentMethod": "cbe_birr",
+    "paymentStatus": "paid",
+    "orderStatus": "shipped",
+    "trackingNumber": "ETH0987654321",
+    "createdAt": "2024-01-11T09:15:00Z",
+    "updatedAt": "2024-01-12T11:30:00Z",
+    "paidAt": "2024-01-11T09:20:00Z",
+    "shippedAt": "2024-01-12T08:00:00Z"
+  }
+]

@@ -1,0 +1,315 @@
+[
+  {
+    "id": "p1",
+    "vendorId": "v1",
+    "vendorName": "Abeba's Traditional Crafts",
+    "vendorLogo": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200",
+    "title": "Traditional Habesha Kemis - White with Gold Embroidery",
+    "slug": "traditional-habesha-kemis-white-gold",
+    "description": "Exquisite handwoven Habesha Kemis made from premium cotton with intricate gold embroidery. This traditional Ethiopian dress is perfect for special occasions and celebrations. Each piece is carefully crafted by skilled artisans using techniques passed down through generations. The dress features beautiful Tilf (embroidered borders) with traditional patterns that represent Ethiopian cultural heritage.",
+    "shortDescription": "Handwoven cotton Habesha Kemis with gold embroidery, perfect for special occasions",
+    "price": 3500,
+    "compareAtPrice": 4200,
+    "discount": 17,
+    "images": [
+      {
+        "id": "img1",
+        "url": "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800",
+        "alt": "White Habesha Kemis front view",
+        "isPrimary": true
+      },
+      {
+        "id": "img2",
+        "url": "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=800",
+        "alt": "Habesha Kemis detail view",
+        "isPrimary": false
+      }
+    ],
+    "category": {
+      "id": "1",
+      "name": "Traditional Clothing",
+      "slug": "traditional-clothing",
+      "productsCount": 156
+    },
+    "stock": 15,
+    "sku": "HK-WG-001",
+    "materials": ["Premium Cotton", "Gold Thread"],
+    "dimensions": {
+      "length": 150,
+      "width": 60,
+      "unit": "cm"
+    },
+    "colors": ["White", "Ivory", "Cream"],
+    "customizable": true,
+    "customizationNote": "Can be customized for size and embroidery color",
+    "handmadeIn": "Addis Ababa",
+    "productionTime": "7-10 days",
+    "featured": true,
+    "status": "active",
+    "rating": 4.9,
+    "totalReviews": 34,
+    "totalSales": 127,
+    "views": 1543,
+    "tags": ["habesha", "traditional", "wedding", "celebration", "handwoven"],
+    "createdAt": "2023-08-15T10:00:00Z",
+    "updatedAt": "2024-01-10T14:30:00Z"
+  },
+  {
+    "id": "p2",
+    "vendorId": "v2",
+    "vendorName": "Dawit's Leather Workshop",
+    "vendorLogo": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200",
+    "title": "Handcrafted Ethiopian Leather Messenger Bag",
+    "slug": "handcrafted-ethiopian-leather-messenger-bag",
+    "description": "Premium quality messenger bag handcrafted from genuine Ethiopian leather. Features multiple compartments, adjustable strap, and traditional brass hardware. Perfect for daily use or as a unique gift. The leather is sourced locally and treated using traditional methods, ensuring durability and a beautiful patina over time.",
+    "shortDescription": "Genuine leather messenger bag with traditional brass hardware and multiple compartments",
+    "price": 2800,
+    "compareAtPrice": 3500,
+    "discount": 20,
+    "images": [
+      {
+        "id": "img3",
+        "url": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800",
+        "alt": "Leather messenger bag",
+        "isPrimary": true
+      },
+      {
+        "id": "img4",
+        "url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800",
+        "alt": "Bag interior view",
+        "isPrimary": false
+      },
+      {
+        "id": "img5",
+        "url": "https://images.unsplash.com/photo-1591561954555-607968c989ab?w=800",
+        "alt": "Bag detail",
+        "isPrimary": false
+      }
+    ],
+    "category": {
+      "id": "4",
+      "name": "Leather Goods",
+      "slug": "leather-goods",
+      "productsCount": 98
+    },
+    "stock": 8,
+    "sku": "LB-MSG-002",
+    "materials": ["Genuine Ethiopian Leather", "Brass Hardware", "Cotton Lining"],
+    "dimensions": {
+      "length": 38,
+      "width": 30,
+      "height": 10,
+      "weight": 850,
+      "unit": "cm"
+    },
+    "colors": ["Brown", "Black", "Tan"],
+    "customizable": true,
+    "customizationNote": "Monogramming available upon request",
+    "handmadeIn": "Addis Ababa",
+    "productionTime": "5-7 days",
+    "featured": true,
+    "status": "active",
+    "rating": 4.8,
+    "totalReviews": 45,
+    "totalSales": 89,
+    "views": 2341,
+    "tags": ["leather", "bag", "messenger", "handcrafted", "premium"],
+    "createdAt": "2023-09-20T11:00:00Z",
+    "updatedAt": "2024-01-11T09:20:00Z"
+  },
+  {
+    "id": "p3",
+    "vendorId": "v3",
+    "vendorName": "Tigist's Jewelry Collection",
+    "vendorLogo": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200",
+    "title": "Ethiopian Cross Pendant Necklace - Sterling Silver",
+    "slug": "ethiopian-cross-pendant-necklace-sterling-silver",
+    "description": "Beautiful Ethiopian cross pendant handcrafted from 925 sterling silver. This traditional design represents centuries of Ethiopian Orthodox Christianity heritage. The intricate filigree work is done by master silversmiths using time-honored techniques. Comes with an adjustable sterling silver chain.",
+    "shortDescription": "Handcrafted sterling silver Ethiopian cross with traditional filigree work",
+    "price": 1850,
+    "compareAtPrice": 2200,
+    "discount": 16,
+    "images": [
+      {
+        "id": "img6",
+        "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800",
+        "alt": "Ethiopian cross pendant",
+        "isPrimary": true
+      },
+      {
+        "id": "img7",
+        "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
+        "alt": "Cross detail view",
+        "isPrimary": false
+      }
+    ],
+    "category": {
+      "id": "3",
+      "name": "Jewelry",
+      "slug": "jewelry",
+      "productsCount": 189
+    },
+    "stock": 25,
+    "sku": "JW-CRS-003",
+    "materials": ["925 Sterling Silver"],
+    "dimensions": {
+      "length": 4,
+      "width": 3,
+      "weight": 12,
+      "unit": "cm"
+    },
+    "colors": ["Silver"],
+    "customizable": false,
+    "handmadeIn": "Addis Ababa",
+    "productionTime": "3-5 days",
+    "featured": true,
+    "status": "active",
+    "rating": 5.0,
+    "totalReviews": 67,
+    "totalSales": 234,
+    "views": 3456,
+    "tags": ["jewelry", "cross", "silver", "ethiopian", "religious"],
+    "createdAt": "2023-10-05T13:00:00Z",
+    "updatedAt": "2024-01-09T16:45:00Z"
+  },
+  {
+    "id": "p4",
+    "vendorId": "v1",
+    "vendorName": "Abeba's Traditional Crafts",
+    "vendorLogo": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200",
+    "title": "Handwoven Ethiopian Netela Shawl",
+    "slug": "handwoven-ethiopian-netela-shawl",
+    "description": "Traditional Ethiopian Netela shawl handwoven from pure cotton. This elegant shawl features beautiful border designs and is perfect for church services or special occasions. The lightweight fabric makes it comfortable to wear year-round.",
+    "shortDescription": "Pure cotton handwoven Netela with traditional border designs",
+    "price": 850,
+    "compareAtPrice": 1000,
+    "discount": 15,
+    "images": [
+      {
+        "id": "img8",
+        "url": "https://images.unsplash.com/photo-1601924638867-4a2eb3fdaa90?w=800",
+        "alt": "White Netela shawl",
+        "isPrimary": true
+      }
+    ],
+    "category": {
+      "id": "1",
+      "name": "Traditional Clothing",
+      "slug": "traditional-clothing",
+      "productsCount": 156
+    },
+    "stock": 42,
+    "sku": "NT-WHT-004",
+    "materials": ["Pure Cotton"],
+    "dimensions": {
+      "length": 200,
+      "width": 90,
+      "unit": "cm"
+    },
+    "colors": ["White", "Cream", "Light Gray"],
+    "customizable": false,
+    "handmadeIn": "Amhara",
+    "productionTime": "2-4 days",
+    "featured": false,
+    "status": "active",
+    "rating": 4.7,
+    "totalReviews": 28,
+    "totalSales": 156,
+    "views": 987,
+    "tags": ["netela", "shawl", "traditional", "cotton", "handwoven"],
+    "createdAt": "2023-11-12T10:30:00Z",
+    "updatedAt": "2024-01-08T11:20:00Z"
+  },
+  {
+    "id": "p5",
+    "vendorId": "v1",
+    "vendorName": "Abeba's Traditional Crafts",
+    "vendorLogo": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200",
+    "title": "Premium Ethiopian Coffee Gift Set",
+    "slug": "premium-ethiopian-coffee-gift-set",
+    "description": "Authentic Ethiopian coffee gift set featuring freshly roasted Yirgacheffe and Sidamo beans. Includes traditional jebena (coffee pot), coffee cups, and frankincense for the full Ethiopian coffee ceremony experience. Perfect gift for coffee lovers.",
+    "shortDescription": "Complete Ethiopian coffee ceremony set with premium beans and traditional accessories",
+    "price": 1250,
+    "stock": 18,
+    "sku": "CF-SET-005",
+    "materials": ["Coffee Beans", "Ceramic", "Clay"],
+    "images": [
+      {
+        "id": "img9",
+        "url": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800",
+        "alt": "Ethiopian coffee set",
+        "isPrimary": true
+      }
+    ],
+    "category": {
+      "id": "5",
+      "name": "Coffee & Spices",
+      "slug": "coffee-spices",
+      "productsCount": 145
+    },
+    "colors": ["Natural"],
+    "customizable": false,
+    "handmadeIn": "Oromia",
+    "productionTime": "1-2 days",
+    "featured": true,
+    "status": "active",
+    "rating": 4.9,
+    "totalReviews": 91,
+    "totalSales": 312,
+    "views": 4521,
+    "tags": ["coffee", "gift", "ethiopian", "jebena", "ceremony"],
+    "createdAt": "2023-12-01T09:00:00Z",
+    "updatedAt": "2024-01-10T15:30:00Z"
+  },
+  {
+    "id": "p6",
+    "vendorId": "v2",
+    "vendorName": "Dawit's Leather Workshop",
+    "vendorLogo": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200",
+    "title": "Handmade Leather Wallet with Ethiopian Cross",
+    "slug": "handmade-leather-wallet-ethiopian-cross",
+    "description": "Slim bifold wallet crafted from premium Ethiopian leather with embossed Ethiopian cross design. Features multiple card slots, bill compartment, and RFID blocking technology for security.",
+    "shortDescription": "RFID-blocking leather wallet with traditional Ethiopian cross embossing",
+    "price": 680,
+    "compareAtPrice": 850,
+    "discount": 20,
+    "images": [
+      {
+        "id": "img10",
+        "url": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800",
+        "alt": "Leather wallet",
+        "isPrimary": true
+      }
+    ],
+    "category": {
+      "id": "4",
+      "name": "Leather Goods",
+      "slug": "leather-goods",
+      "productsCount": 98
+    },
+    "stock": 35,
+    "sku": "LW-CRS-006",
+    "materials": ["Genuine Leather", "RFID Blocking Material"],
+    "dimensions": {
+      "length": 11,
+      "width": 9,
+      "height": 2,
+      "weight": 85,
+      "unit": "cm"
+    },
+    "colors": ["Brown", "Black"],
+    "customizable": true,
+    "customizationNote": "Personalized initials engraving available",
+    "handmadeIn": "Addis Ababa",
+    "productionTime": "3-4 days",
+    "featured": false,
+    "status": "active",
+    "rating": 4.8,
+    "totalReviews": 52,
+    "totalSales": 178,
+    "views": 1876,
+    "tags": ["wallet", "leather", "rfid", "gift", "accessories"],
+    "createdAt": "2023-10-18T14:00:00Z",
+    "updatedAt": "2024-01-07T10:15:00Z"
+  }
+]
