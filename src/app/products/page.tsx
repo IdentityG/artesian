@@ -1,7 +1,4 @@
 import { Suspense } from 'react'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import ScrollToTop from '@/components/shared/ScrollToTop'
 import ProductsContent from '@/components/products/ProductsContent'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Loading from '@/components/ui/Loading'
@@ -14,7 +11,6 @@ export const metadata = {
 export default function ProductsPage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-gray-50">
         <div className="bg-white border-b border-gray-200">
           <div className="container-custom py-6">
@@ -36,8 +32,6 @@ export default function ProductsPage() {
           <ProductsContent />
         </Suspense>
       </main>
-      <Footer />
-      <ScrollToTop />
     </>
   )
 }
