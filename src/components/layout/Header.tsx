@@ -102,7 +102,7 @@ const Header = () => {
                                     Products
                                 </Link>
                                 <Link
-                                    href="/registervendor"
+                                    href="/vendor-register"
                                     className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
                                 >
                                     Vendors
@@ -317,7 +317,7 @@ const Header = () => {
                                     Products
                                 </Link>
                                 <Link
-                                    href="/registervendor"
+                                    href="/vendor-register"
                                     className="flex items-center px-4 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium rounded-lg transition-colors"
                                     onClick={toggleMobileMenu}
                                 >
