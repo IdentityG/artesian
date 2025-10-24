@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   LucideSearch,
@@ -14,6 +13,8 @@ import {
   LucideMail,
   LucidePhone,
   LucideMapPin,
+  LucideShield,
+  LucideShieldCheck,
 } from 'lucide-react'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
@@ -24,15 +25,52 @@ import { formatDate } from '@/lib/utils'
 import vendorsData from '@/data/sampleVendors.json'
 import { toast } from 'react-hot-toast'
 
+type VendorStatus = 'approved' | 'pending' | 'suspended'
+
+interface Vendor {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  avatar: string
+  role: string
+  businessName: string
+  businessDescription: string
+  businessLogo: string
+  businessBanner: string
+  businessAddress: {
+    id: string
+    street: string
+    city: string
+    region: string
+    subCity: string
+    country: string
+    isDefault: boolean
+  }
+  status: VendorStatus
+  rating: number
+  totalReviews: number
+  totalProducts: number
+  totalSales: number
+  joinedAt: string
+  verifiedAt: string
+  isEmailVerified: boolean
+  isPhoneVerified: boolean
+  createdAt: string
+  updatedAt: string
+}
+
 const VendorsManagement = () => {
   const [searchQuery, setSearchQuery] = useState('')
-  const [filterStatus, setFilterStatus] = useState<'all' | 'approved' | 'pending' | 'suspended'>('all')
-  const [vendors, setVendors] = useState(vendorsData)
+  const [filterStatus, setFilterStatus] = useState<'all' | VendorStatus>('all')
+  const [vendors, setVendors] = useState<Vendor[]>(vendorsData as Vendor[])
 
   const filteredVendors = vendors.filter((vendor) => {
     const matchesSearch =
       vendor.businessName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       vendor.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      vendor.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       vendor.email.toLowerCase().includes(searchQuery.toLowerCase())
 
     const matchesStatus =
@@ -51,7 +89,13 @@ const VendorsManagement = () => {
   const handleApprove = (vendorId: string) => {
     setVendors((prev) =>
       prev.map((v) =>
-        v.id === vendorId ? { ...v, status: 'approved' as const, verifiedAt: new Date().toISOString() } : v
+        v.id === vendorId
+          ? {
+              ...v,
+              status: 'approved' as VendorStatus,
+              verifiedAt: new Date().toISOString(),
+            }
+          : v
       )
     )
     toast.success('Vendor approved successfully!')
@@ -66,9 +110,9 @@ const VendorsManagement = () => {
 
   const handleSuspend = (vendorId: string) => {
     if (window.confirm('Are you sure you want to suspend this vendor?')) {
-        setVendors((prev) =>
+      setVendors((prev) =>
         prev.map((v) =>
-          v.id === vendorId ? { ...v, status: 'suspended' as const } : v
+          v.id === vendorId ? { ...v, status: 'suspended' as VendorStatus } : v
         )
       )
       toast.success('Vendor suspended')
@@ -94,6 +138,14 @@ const VendorsManagement = () => {
             <p className="text-gray-600">
               Manage and monitor all vendors on the platform
             </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <p className="text-sm text-gray-600">Total Vendors</p>
+              <p className="text-2xl font-bold text-purple-600">
+                {vendors.length}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -130,7 +182,7 @@ const VendorsManagement = () => {
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
         <Input
           type="text"
-          placeholder="Search vendors by name, email, or business..."
+          placeholder="Search vendors by name, business name, or email..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           leftIcon={<LucideSearch className="w-5 h-5" />}
@@ -148,32 +200,16 @@ const VendorsManagement = () => {
               transition={{ delay: index * 0.05 }}
               className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
             >
-              {/* Vendor Header */}
-              <div className="p-6 border-b border-gray-200">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-100">
-                      {vendor.logo ? (
-                        <img
-                          src={vendor.logo}
-                          alt={vendor.businessName}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-purple-600 flex items-center justify-center text-white font-bold text-xl">
-                          {vendor.businessName.charAt(0)}
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 line-clamp-1">
-                        {vendor.businessName}
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        {vendor.firstName} {vendor.lastName}
-                      </p>
-                    </div>
-                  </div>
+              {/* Business Banner */}
+              <div className="relative h-32 bg-gradient-to-r from-purple-600 to-pink-600">
+                {vendor.businessBanner && (
+                  <img
+                    src={vendor.businessBanner}
+                    alt={vendor.businessName}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                <div className="absolute top-3 right-3">
                   <Badge
                     variant={
                       vendor.status === 'approved'
@@ -187,70 +223,123 @@ const VendorsManagement = () => {
                     {vendor.status}
                   </Badge>
                 </div>
+              </div>
+
+              {/* Vendor Header */}
+              <div className="px-6 -mt-8 mb-4">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden bg-white border-4 border-white shadow-lg">
+                  {vendor.businessLogo ? (
+                    <img
+                      src={vendor.businessLogo}
+                      alt={vendor.businessName}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-purple-600 flex items-center justify-center text-white font-bold text-2xl">
+                      {vendor.businessName.charAt(0)}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="px-6 pb-4">
+                <div className="flex items-start justify-between mb-2">
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 text-lg line-clamp-1">
+                      {vendor.businessName}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {vendor.firstName} {vendor.lastName}
+                    </p>
+                  </div>
+                  <div className="flex gap-1">
+                    {vendor.isEmailVerified && (
+                      <div className="text-green-600" title="Email Verified">
+                        <LucideShieldCheck className="w-4 h-4" />
+                      </div>
+                    )}
+                    {vendor.isPhoneVerified && (
+                      <div className="text-blue-600" title="Phone Verified">
+                        <LucideShield className="w-4 h-4" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                  {vendor.businessDescription}
+                </p>
 
                 {/* Rating */}
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-4">
                   <RatingStars rating={vendor.rating} size="sm" />
                   <span className="text-sm text-gray-600">
-                    ({vendor.totalReviews} reviews)
+                    {vendor.rating} ({vendor.totalReviews} reviews)
                   </span>
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-2 gap-3 mb-3">
-                  <div className="text-center p-2 bg-gray-50 rounded-lg">
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="text-center p-3 bg-purple-50 rounded-lg">
                     <p className="text-xs text-gray-600">Products</p>
-                    <p className="text-lg font-bold text-gray-900">
+                    <p className="text-xl font-bold text-purple-600">
                       {vendor.totalProducts}
                     </p>
                   </div>
-                  <div className="text-center p-2 bg-gray-50 rounded-lg">
-                    <p className="text-xs text-gray-600">Sales</p>
-                    <p className="text-lg font-bold text-gray-900">
+                  <div className="text-center p-3 bg-green-50 rounded-lg">
+                    <p className="text-xs text-gray-600">Total Sales</p>
+                    <p className="text-xl font-bold text-green-600">
                       {vendor.totalSales}
                     </p>
                   </div>
                 </div>
-              </div>
 
-              {/* Vendor Details */}
-              <div className="p-6 space-y-3">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <LucideMail className="w-4 h-4" />
-                  <a
-                    href={`mailto:${vendor.email}`}
-                    className="text-purple-600 hover:underline truncate"
-                  >
-                    {vendor.email}
-                  </a>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <LucidePhone className="w-4 h-4" />
-                  <a href={`tel:${vendor.phone}`} className="text-purple-600 hover:underline">
-                    {vendor.phone}
-                  </a>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <LucideMapPin className="w-4 h-4" />
-                  <span className="truncate">
-                    {vendor.businessCity}, {vendor.businessRegion}
-                  </span>
+                {/* Contact Details */}
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <LucideMail className="w-4 h-4 flex-shrink-0" />
+                    <a
+                      href={`mailto:${vendor.email}`}
+                      className="text-purple-600 hover:underline truncate"
+                    >
+                      {vendor.email}
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <LucidePhone className="w-4 h-4 flex-shrink-0" />
+                    <a
+                      href={`tel:${vendor.phone}`}
+                      className="text-purple-600 hover:underline"
+                    >
+                      {vendor.phone}
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <LucideMapPin className="w-4 h-4 flex-shrink-0" />
+                    <span className="truncate">
+                      {vendor.businessAddress.subCity},{' '}
+                      {vendor.businessAddress.city}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="pt-3 border-t border-gray-200">
+                {/* Timestamps */}
+                <div className="pt-3 border-t border-gray-200 space-y-1">
                   <p className="text-xs text-gray-500">
-                    Joined {formatDate(vendor.createdAt)}
+                    Joined {formatDate(vendor.joinedAt)}
                   </p>
                   {vendor.status === 'approved' && vendor.verifiedAt && (
-                    <p className="text-xs text-green-600 mt-1">
-                      ✓ Verified {formatDate(vendor.verifiedAt)}
+                    <p className="text-xs text-green-600 flex items-center gap-1">
+                      <LucideCheck className="w-3 h-3" />
+                      Verified {formatDate(vendor.verifiedAt)}
                     </p>
                   )}
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="p-6 bg-gray-50 border-t border-gray-200">
+              <div className="p-4 bg-gray-50 border-t border-gray-200">
                 <div className="flex gap-2">
                   {vendor.status === 'pending' && (
                     <>
@@ -276,7 +365,10 @@ const VendorsManagement = () => {
                   )}
                   {vendor.status === 'approved' && (
                     <>
-                      <Link href={`/admin/vendors/${vendor.id}`} className="flex-1">
+                      <Link
+                        href={`/admin/vendors/${vendor.id}`}
+                        className="flex-1"
+                      >
                         <Button variant="outline" size="sm" className="w-full">
                           <LucideEye className="w-4 h-4" />
                           View
@@ -315,8 +407,8 @@ const VendorsManagement = () => {
             title="No vendors found"
             description={
               searchQuery
-                ? 'Try adjusting your search'
-                : `No ${filterStatus} vendors`
+                ? 'Try adjusting your search query'
+                : `No ${filterStatus} vendors available`
             }
           />
         </div>

@@ -2,24 +2,16 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import {
-  LucideMail,
-  LucideLock,
-  LucideUser,
-  LucidePhone,
-  LucideEye,
-  LucideEyeOff,
-} from 'lucide-react'
-import Input from '../ui/Input'
-import Button from '../ui/Button'
+import { LucideMail, LucideLock, LucideUser, LucidePhone } from 'lucide-react'
+import Input from '@/components/ui/Input'
+import Button from '@/components/ui/Button'
 import { useAuthStore } from '@/store/authStore'
 import { toast } from 'react-hot-toast'
+import { Customer } from '@/types/user'
 
 const RegisterForm = () => {
   const router = useRouter()
-  const login = useAuthStore((state) => state.login)
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const { login } = useAuthStore()
   const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
@@ -30,14 +22,6 @@ const RegisterForm = () => {
     confirmPassword: '',
     agreeToTerms: false,
   })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }))
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -54,28 +38,34 @@ const RegisterForm = () => {
 
     setIsLoading(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500))
 
-    // Mock registration
-    const newUser = {
-      id: 'u' + Date.now(),
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 50)}`,
-      role: 'customer' as const,
-      isEmailVerified: false,
-      isPhoneVerified: false,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+      const newCustomer: Customer = {
+        id: 'customer-' + Date.now(),
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        role: 'customer',
+        isEmailVerified: false,
+        isPhoneVerified: false,
+        addresses: [],
+        wishlistCount: 0,
+        ordersCount: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      }
+
+      login(newCustomer)
+      toast.success('Account created successfully!')
+      router.push('/')
+    } catch (error) {
+      toast.error('Registration failed')
+    } finally {
+      setIsLoading(false)
     }
-
-    login(newUser)
-    setIsLoading(false)
-    toast.success('Account created successfully!')
-    router.push('/')
   }
 
   return (
@@ -84,107 +74,89 @@ const RegisterForm = () => {
         <Input
           label="First Name"
           type="text"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-          leftIcon={<LucideUser className="w-5 h-5" />}
           placeholder="John"
+          value={formData.firstName}
+          onChange={(e) =>
+            setFormData({ ...formData, firstName: e.target.value })
+          }
+          leftIcon={<LucideUser className="w-5 h-5" />}
+          required
         />
         <Input
           label="Last Name"
           type="text"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-          leftIcon={<LucideUser className="w-5 h-5" />}
           placeholder="Doe"
+          value={formData.lastName}
+          onChange={(e) =>
+            setFormData({ ...formData, lastName: e.target.value })
+          }
+          leftIcon={<LucideUser className="w-5 h-5" />}
+          required
         />
       </div>
 
       <Input
-        label="Email Address"
+        label="Email"
         type="email"
-        name="email"
+        placeholder="your@email.com"
         value={formData.email}
-        onChange={handleChange}
-        required
+        onChange={(e) =>
+          setFormData({ ...formData, email: e.target.value })
+        }
         leftIcon={<LucideMail className="w-5 h-5" />}
-        placeholder="you@example.com"
+        required
       />
 
       <Input
-        label="Phone Number"
+        label="Phone"
         type="tel"
-        name="phone"
+        placeholder="+251911234567"
         value={formData.phone}
-        onChange={handleChange}
-        required
+        onChange={(e) =>
+          setFormData({ ...formData, phone: e.target.value })
+        }
         leftIcon={<LucidePhone className="w-5 h-5" />}
-        placeholder="+251 911 234 567"
+        required
       />
 
       <Input
         label="Password"
-        type={showPassword ? 'text' : 'password'}
-        name="password"
+        type="password"
+        placeholder="••••••••"
         value={formData.password}
-        onChange={handleChange}
-        required
-        leftIcon={<LucideLock className="w-5 h-5" />}
-        rightIcon={
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="hover:text-primary-600"
-          >
-            {showPassword ? (
-              <LucideEyeOff className="w-5 h-5" />
-            ) : (
-              <LucideEye className="w-5 h-5" />
-            )}
-          </button>
+        onChange={(e) =>
+          setFormData({ ...formData, password: e.target.value })
         }
-        placeholder="Create a strong password"
+        leftIcon={<LucideLock className="w-5 h-5" />}
+        required
       />
 
       <Input
         label="Confirm Password"
-        type={showConfirmPassword ? 'text' : 'password'}
-        name="confirmPassword"
+        type="password"
+        placeholder="••••••••"
         value={formData.confirmPassword}
-        onChange={handleChange}
-        required
-        leftIcon={<LucideLock className="w-5 h-5" />}
-        rightIcon={
-          <button
-            type="button"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            className="hover:text-primary-600"
-          >
-            {showConfirmPassword ? (
-              <LucideEyeOff className="w-5 h-5" />
-            ) : (
-              <LucideEye className="w-5 h-5" />
-            )}
-          </button>
+        onChange={(e) =>
+          setFormData({ ...formData, confirmPassword: e.target.value })
         }
-        placeholder="Confirm your password"
+        leftIcon={<LucideLock className="w-5 h-5" />}
+        required
       />
 
       <label className="flex items-start gap-2 cursor-pointer">
         <input
           type="checkbox"
-          name="agreeToTerms"
           checked={formData.agreeToTerms}
-          onChange={handleChange}
-          className="w-4 h-4 mt-0.5 text-primary-600 focus:ring-primary-500 rounded"
+          onChange={(e) =>
+            setFormData({ ...formData, agreeToTerms: e.target.checked })
+          }
+          className="w-4 h-4 mt-1 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+          required
         />
         <span className="text-sm text-gray-700">
           I agree to the{' '}
           <a href="/terms" className="text-primary-600 hover:underline">
-            Terms of Service
+            Terms and Conditions
           </a>{' '}
           and{' '}
           <a href="/privacy" className="text-primary-600 hover:underline">
@@ -193,13 +165,7 @@ const RegisterForm = () => {
         </span>
       </label>
 
-      <Button
-        type="submit"
-        variant="primary"
-        size="lg"
-        className="w-full"
-        isLoading={isLoading}
-      >
+      <Button type="submit" isLoading={isLoading} className="w-full">
         Create Account
       </Button>
     </form>

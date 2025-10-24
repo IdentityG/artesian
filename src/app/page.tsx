@@ -1,6 +1,3 @@
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import ScrollToTop from '@/components/shared/ScrollToTop'
 import Hero from '@/components/home/Hero'
 import Categories from '@/components/home/Categories'
 import FeaturedProducts from '@/components/home/FeaturedProducts'
@@ -12,7 +9,6 @@ import Newsletter from '@/components/home/Newsletter'
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <Categories />
@@ -22,8 +18,6 @@ export default function Home() {
         <Testimonials />
         <Newsletter />
       </main>
-      <Footer />
-      <ScrollToTop />
     </>
   )
 }
