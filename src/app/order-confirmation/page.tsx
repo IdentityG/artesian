@@ -5,8 +5,6 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { LucideCheckCircle, LucideHome, LucidePackage } from 'lucide-react'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import Loading from '@/components/ui/Loading'
 
@@ -27,7 +25,6 @@ function OrderConfirmationContent() {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -155,7 +152,6 @@ function OrderConfirmationContent() {
           </div>
         </motion.div>
       </main>
-      <Footer />
     </>
   )
 }

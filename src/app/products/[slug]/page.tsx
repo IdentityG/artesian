@@ -1,7 +1,4 @@
 import { notFound } from 'next/navigation'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import ScrollToTop from '@/components/shared/ScrollToTop'
 import ProductDetails from '@/components/products/ProductDetails'
 import ProductReviews from '@/components/products/ProductReviews'
 import RelatedProducts from '@/components/products/RelatedProducts'
@@ -57,7 +54,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-gray-50">
         <div className="bg-white border-b border-gray-200">
           <div className="container-custom py-6">
@@ -77,8 +73,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <RelatedProducts products={relatedProducts} />
         )}
       </main>
-      <Footer />
-      <ScrollToTop />
     </>
   )
 }

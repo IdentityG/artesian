@@ -14,9 +14,6 @@ import {
   LucideLogOut,
   LucideShield,
 } from 'lucide-react'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import ScrollToTop from '@/components/shared/ScrollToTop'
 import Loading from '@/components/ui/Loading'
 import { useAuthStore } from '@/store/authStore'
 import { toast } from 'react-hot-toast'
@@ -99,7 +96,6 @@ export default function AdminLayout({
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-gray-50">
         <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
           <div className="container-custom py-8">
@@ -192,8 +188,6 @@ export default function AdminLayout({
           </div>
         </div>
       </main>
-      <Footer />
-      <ScrollToTop />
     </>
   )
 }

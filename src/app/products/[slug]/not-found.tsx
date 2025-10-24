@@ -1,13 +1,10 @@
 import Link from 'next/link'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { LucideHome, LucideSearch } from 'lucide-react'
 
 export default function ProductNotFound() {
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <div className="mb-8">
@@ -35,7 +32,6 @@ export default function ProductNotFound() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   )
 }
